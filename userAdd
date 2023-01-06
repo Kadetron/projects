@@ -1,0 +1,14 @@
+#!/bin/bash
+echo -n "Enter the username: "
+read user
+cat /etc/passwd | awk -F : '{print $1}' | grep "^$user" > /dev/null
+flag=`echo $?`
+if [ $flag -eq 0 ]
+then
+	echo "The username $user already exists"
+else
+	echo -n "Enter the password for username $user: "
+	read pass
+	{ echo $pass; echo $pass ; } | sudo adduser --gecos GECOS $user > /dev/null
+	echo -e "\nSUCCESS"
+fi
