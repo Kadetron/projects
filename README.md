@@ -1,2 +1,2 @@
 # projects
-practice programs with c structures
+practice programs with c and bash
