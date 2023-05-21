@@ -9,24 +9,24 @@ typedef struct node
 void createX(x * head, int c, int e)
 {
         x * ptr=head;
-        x * new=(x *)malloc(sizeof(x));
+        x * n=(x *)malloc(sizeof(x));
         while(ptr->next!=NULL)
                 ptr=ptr->next;
-        ptr->next=new;
-        new->next=NULL;
-        new->coef=c;
-        new->exp=e;
+        ptr->next=n;
+        n->next=NULL;
+        n->coef=c;
+        n->exp=e;
 }
 void createY(y * head, int c, int e)
 {
         y * ptr=head;
-        y * new=(y *)malloc(sizeof(y));
+        y * n=(y *)malloc(sizeof(y));
         while(ptr->next!=NULL)
                 ptr=ptr->next;
-        ptr->next=new;
-        new->next=NULL;
-        new->coef=c;
-        new->exp=e;
+        ptr->next=n;
+        n->next=NULL;
+        n->coef=c;
+        n->exp=e;
 }
 void sum(x * xhead,y * yhead,z * zhead)
 {
@@ -101,12 +101,31 @@ void displayZ(z * head)
                 }
                 ptr=ptr->next;
         }
-        printf(")");
+        printf(")\n");
 }
 void displayX(x * head)
 {
-    printf("(");
+        printf("(");
         x * ptr=head;
+        int swapE,swapC;
+        x * nptr;
+        while(ptr!=NULL)
+        {
+                for(nptr=head;nptr!=NULL;nptr=nptr->next)
+                {
+                        if(ptr->exp>=nptr->exp)
+                        {
+                                swapC=ptr->coef;
+                                swapE=ptr->exp;
+                                ptr->coef=nptr->coef;
+                                ptr->exp=nptr->exp;
+                                nptr->coef=swapC;
+                                nptr->exp=swapE;
+                        }
+                }
+                ptr=ptr->next;
+        }
+        ptr=head;
         while(ptr!=NULL)
         {
                 if(ptr->exp!=0&&ptr->next!=NULL)
@@ -129,6 +148,25 @@ void displayY(y * head)
 {
         printf("(");
         y * ptr=head;
+        int swapE,swapC;
+        y * nptr;
+        while(ptr!=NULL)
+        {
+                for(nptr=head;nptr!=NULL;nptr=nptr->next)
+                {
+                        if(ptr->exp>=nptr->exp)
+                        {
+                                swapC=ptr->coef;
+                                swapE=ptr->exp;
+                                ptr->coef=nptr->coef;
+                                ptr->exp=nptr->exp;
+                                nptr->coef=swapC;
+                                nptr->exp=swapE;
+                        }
+                }
+                ptr=ptr->next;
+        }
+        ptr=head;
         while(ptr!=NULL)
         {
                 if(ptr->exp!=0&&ptr->next!=NULL)
