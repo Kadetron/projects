@@ -1,5 +1,5 @@
 # Projects
-**Practice programs with c and bash**
+**Smaller projects that I made in my free time**
 > No. of programs in the file : 4
 
 ## Project constitution
