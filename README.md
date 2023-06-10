@@ -1,6 +1,6 @@
 # Projects
-**Smaller projects that I made in my free time**
-> No. of programs in the file : 4
+**Smaller projects that I made in my free time ;)**
+> No. of programs in the file : **4**
 
 ## Project constitution
 - ceaser cipher implementation in JAVA
